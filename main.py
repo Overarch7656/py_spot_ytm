@@ -130,14 +130,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-def basic_math(a, b):
-    return {
-        "add": a + b,
-        "subtract": a - b,
-        "multiply": a * b,
-        "divide": a / b if b != 0 else None
-    }
-
-result = basic_math(10, 5)
-#console.print(result)
