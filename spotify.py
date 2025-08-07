@@ -9,6 +9,12 @@ console = Console()
 
 
 def load_config():
+    """
+    Loads the Spotify configuration from 'config.json'.
+
+    Returns:
+        dict: Configuration dictionary containing Spotify credentials and settings.
+    """
     config_path = "config.json"
     if not os.path.exists(config_path):
         console.print("[red]Missing 'config.json'. Please create one using the example_config.json before running this program.[/red]")
@@ -24,6 +30,13 @@ def load_config():
         sys.exit(1)
 
 def spotify_auth():
+    """
+    Authenticates the user with Spotify using credentials from 'config.json'.
+
+    Returns:
+        spotipy.Spotify: An authenticated Spotify client instance.
+    """
+
     console.print("[bold cyan]Authenticating with Spotify...[/bold cyan]")
     info("Authenticating with Spotify...")
 
@@ -52,6 +65,16 @@ def spotify_auth():
         sys.exit(1)
 
 def get_user_playlists(sp):
+    """
+    Fetches all user playlists from Spotify.
+
+    Args:
+        sp (spotipy.Spotify): Authenticated Spotify client.
+
+    Returns:
+        list[dict]: List of Spotify playlists.
+    """
+
     playlists = []
     offset = 0
     while True:
@@ -64,15 +87,44 @@ def get_user_playlists(sp):
     return playlists
 
 def make_safe_filename(name):
-   # Regular Expression
+    """
+    Sanitizes a string to be safe for use as a filename.
+
+    Args:
+        name (str): Original playlist name.
+
+    Returns:
+        str: Sanitized filename.
+    """
     return re.sub(r'[^\w\-_\. ]', '_', name).strip()
 
 def is_playlist_saved(name):
+    """
+    Checks if a playlist with the given name has already been saved as a JSON file.
+
+    Args:
+        name (str): Name of the playlist.
+
+    Returns:
+        bool: True if the playlist is saved, False otherwise.
+    """
+
     safe_name = make_safe_filename(name)
     path = f"playlists/{safe_name}.json"
     return os.path.exists(path)
 
 def choose_playlists(playlists):
+    """
+    Prompts the user to select Spotify playlists from a list,
+    distinguishing between saved and unsaved ones.
+
+    Args:
+        playlists (list[dict]): List of Spotify playlists.
+
+    Returns:
+        list[dict]: List of selected playlist dictionaries.
+    """
+
     saved = []
     new = []
     console.rule("[bold cyan]Your Spotify Playlists[/bold cyan]")
@@ -112,6 +164,16 @@ def choose_playlists(playlists):
     return selected
 
 def save_playlist_to_json(sp, playlist):
+    """
+    Fetches tracks from a Spotify playlist and saves them to a local JSON file.
+
+    Args:
+        sp (spotipy.Spotify): Authenticated Spotify client.
+        playlist (dict): Spotify playlist object.
+
+    Returns:
+        None
+    """
     tracks = []
     results = sp.playlist_items(playlist["id"], additional_types=["track"])
     while results:

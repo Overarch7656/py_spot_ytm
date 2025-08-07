@@ -51,6 +51,18 @@ def load_ytmusic():
         sys.exit(1)
 
 def create_playlist(ytmusic, name, description="Imported from Spotify"):
+    """
+    Creates a new playlist on YouTube Music.
+
+    Args:
+        ytmusic (YTMusic): Authenticated YTMusic instance.
+        name (str): Name of the playlist.
+        description (str, optional): Playlist description. Defaults to "Imported from Spotify".
+
+    Returns:
+        str: The ID of the newly created playlist.
+    """
+
     try:
         console.print(f"[cyan]Creating playlist: '{name}'[/cyan]")
         info(f"Creating playlist: '{name}'")
@@ -61,6 +73,18 @@ def create_playlist(ytmusic, name, description="Imported from Spotify"):
         sys.exit(1)
 
 def search_song(ytmusic, title, artist):
+    """
+    Searches YouTube Music for a song by title and artist.
+
+    Args:
+        ytmusic (YTMusic): Authenticated YTMusic instance.
+        title (str): Song title.
+        artist (str): Song artist.
+
+    Returns:
+        str | None: Video ID of the found song, or None if not found.
+    """
+
     console.print(f"[cyan] Searching for {title} - {artist}[/cyan]")
     info(f"Searching for {title} - {artist}")
     try:
@@ -73,8 +97,19 @@ def search_song(ytmusic, title, artist):
         error(f"Search failed for '{title} - {artist}': {e}")
     return None
 
-
 def add_songs_to_playlist(ytmusic, playlist_id, video_ids):
+    """
+    Adds a list of video IDs to a YouTube Music playlist.
+
+    Args:
+        ytmusic (YTMusic): Authenticated YTMusic instance.
+        playlist_id (str): YouTube Music playlist ID.
+        video_ids (list[str]): List of YouTube Music video IDs.
+
+    Returns:
+        None
+    """
+
     try:
         console.print(f"[cyan]Adding {len(video_ids)} songs to playlist[/cyan]")
         info(f"Adding {len(video_ids)} songs to playlist...")
@@ -83,7 +118,6 @@ def add_songs_to_playlist(ytmusic, playlist_id, video_ids):
         console.print(f"[red]Failed to add songs to playlist: {e}[/red]")
         error(f"Failed to add songs to playlist: {e}")
         sys.exit(1)
-
 
 def get_playlist_video_ids(ytmusic, playlist_id):
     """
@@ -109,6 +143,17 @@ def get_playlist_video_ids(ytmusic, playlist_id):
         return []
 
 def match_songs_on_ytmusic(ytmusic, songs):
+    """
+    Matches a list of songs with their corresponding YouTube Music video IDs.
+
+    Args:
+        ytmusic (YTMusic): Authenticated YTMusic instance.
+        songs (list[dict]): List of songs with 'title' and 'artist' fields.
+
+    Returns:
+        list[str]: List of matched video IDs (duplicates removed).
+    """
+
     video_ids = []
     for song in songs:
         title, artist = song['title'], song['artist']
