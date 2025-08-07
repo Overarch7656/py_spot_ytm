@@ -24,8 +24,8 @@ This is a terminal-based Python application that lets you:
 ## Requirements
 
 * Python 3.8+
-* Spotify Developer credentials
-* YouTube Data API OAuth credentials
+* [Spotify Developer credentials](https://spotipy.readthedocs.io/en/2.25.1/#getting-started)
+* [YouTube Data API OAuth credentials](https://ytmusicapi.readthedocs.io/en/stable/setup/oauth.html)
 
 ---
 
@@ -46,10 +46,9 @@ pip install -r requirements.txt
 
 3. **Setup authentication**
 
-* Create a `config.json` file in the project root (auto-generated if missing)
+* Create a `config.json` file in the project root. See `example_config.jason`
 
 Example structure:
-
 ```json
 {
   "spotify": {
@@ -70,7 +69,7 @@ Example structure:
 ytmusicapi oauth
 ```
 
-This will generate an `oauth.json` file required for authenticating with YouTube Music.
+This will generate an `oauth.json` file required for authenticating with YouTube Music. You will need your Google API `client_id` and `client_secret. [LINK](https://ytmusicapi.readthedocs.io/en/stable/setup/oauth.html) *When creating the credentials, select OAuth client ID and pick TVs and Limited Input devices*
 
 ---
 
