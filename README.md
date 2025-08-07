@@ -69,7 +69,7 @@ Example structure:
 ytmusicapi oauth
 ```
 
-This will generate an `oauth.json` file required for authenticating with YouTube Music. You will need your Google API `client_id` and `client_secret. [LINK](https://ytmusicapi.readthedocs.io/en/stable/setup/oauth.html) *When creating the credentials, select OAuth client ID and pick TVs and Limited Input devices*
+This will generate an `oauth.json` file required for authenticating with YouTube Music. You will need your Google API `client_id` and `client_secret`. [LINK](https://ytmusicapi.readthedocs.io/en/stable/setup/oauth.html) *When creating the credentials, select OAuth client ID and pick TVs and Limited Input devices*
 
 ---
 
