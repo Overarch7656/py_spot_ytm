@@ -89,17 +89,3 @@ python main.py --log
 * `--log`: Saves all output to `logs/session.log`
 
 ---
-
----
-
-## Testing
-
-Tests are written using `unittest`.
-
-Run all tests:
-
-```bash
-python -m unittest discover tests
-```
-
----
