@@ -140,4 +140,4 @@ def basic_math(a, b):
     }
 
 result = basic_math(10, 5)
-console.print(result)
+#console.print(result)

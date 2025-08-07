@@ -34,8 +34,8 @@ This is a terminal-based Python application that lets you:
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/your-username/spotyt.git
-cd spotyt
+git clone https://github.com/Overarch7656/py_spot_ytm
+cd py_spot_ytm
 ```
 
 2. **Install dependencies**
