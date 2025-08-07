@@ -20,7 +20,7 @@ from ytmusic import (
     match_songs_on_ytmusic
 )
 
-logger.DEBUG_MODE = "--debug" in sys.argv
+
 logger.LOG_TO_FILE = "--log" in sys.argv
 
 console = Console()

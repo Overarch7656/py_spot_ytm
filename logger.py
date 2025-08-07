@@ -7,7 +7,7 @@ import os
 console = Console()
 
 # Defaults – can be changed in main.py
-DEBUG_MODE = True
+
 LOG_TO_FILE = False
 LOG_FILE = "logs/session.log"
 
@@ -18,8 +18,7 @@ def _write_to_file(message, level):
         f.write(f"[{timestamp}] [{level.upper()}] {message}\n")
 
 def log(message, style=None, level="info"):
-    if DEBUG_MODE:
-        console.print(message, style=style)
+
     if LOG_TO_FILE:
         _write_to_file(message, level)
 
