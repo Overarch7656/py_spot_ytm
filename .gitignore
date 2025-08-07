@@ -1,0 +1,27 @@
+# Virtual environment
+.venv/
+
+env/
+
+# PyCharm specific files
+.idea/
+*.iml
+
+# Compiled Python files
+__pycache__/
+*.pyc
+
+# Log and temporary files
+*.log
+*.tmp
+
+# Sensitive information
+config.json
+oauth.json
+.env
+.cache
+playlists/
+
+# Build artifacts
+dist/
+build/

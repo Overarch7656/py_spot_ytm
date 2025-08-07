@@ -1,0 +1,11 @@
+{
+    "spotify": {
+        "client_id": "YOUR_SPOTIFY_CLIENT_ID",
+        "client_secret": "YOUR_SPOTIFY_CLIENT_SECRET",
+        "redirect_uri": "http://127.0.0.1:9090"
+    },
+    "yt_secret": {
+        "client_id": "YOUR_YOUTUBE_CLIENT_ID",
+        "client_secret": "YOUR_YOUTUBE_CLIENT_SECRET"
+    }
+}
